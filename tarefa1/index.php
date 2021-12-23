@@ -2,43 +2,43 @@
 <html>
     <head>
         <title>Tarefa 1</title>
-        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <link rel="stylesheet" type="text/css" href="../pageEstilo/estilo.css">
     </head>
     <body>
+        <!-- Botões para navegar entre as paginas -->
         <h1 class="">Listagem dos Carros</h1>
         <button id="myBtn" class="btnVoltar">Adicionar Carro</button><br>
         <script>
             var btn = document.getElementById('myBtn');
             btn.addEventListener('click', function() {
-            document.location.href = 'form_add_carro.php';
+            document.location.href = 'pageAdd/form_add_carro.php';
             });
         </script> 
         <button id="myBtn3" class="btnVoltar">Deletar Carro</button><br>
         <script>
             var btn = document.getElementById('myBtn3');
             btn.addEventListener('click', function() {
-            document.location.href = 'form_del_carro.php';
+            document.location.href = 'pageDel/form_del_carro.php';
             });
         </script> 
         <button id="myBtn2" class="btnVoltar">Adicionar Motor</button><br>
         <script>
             var btn = document.getElementById('myBtn2');
             btn.addEventListener('click', function() {
-            document.location.href = 'form_add_motor.php';
+            document.location.href = 'pageAdd/form_add_motor.php';
             });
         </script> 
         <button id="myBtn4" class="btnVoltar">Deletar Motor</button><br><br>
         <script>
             var btn = document.getElementById('myBtn4');
             btn.addEventListener('click', function() {
-            document.location.href = 'form_del_motor.php';
+            document.location.href = 'pageDel/form_del_motor.php';
             });
         </script> 
 
         <?php             
-            //include_once("api.php"); 
-            include("dadosConexao.php"); 
-            //consumirAPI(); 
+            //Consulta da api pelo método GET com cURL
+            include("db/dadosConexao.php"); 
             $url = "https://apiintranet.kryptonbpo.com.br/test-dev/exercise-1";
             $ch = curl_init($url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -47,6 +47,7 @@
                 $response = curl_exec($ch);
                     curl_close($ch);
 
+            //salvando os dados em um json
             $validando_once = file_exists('api.json');
             if($validando_once){
                 $registros = file_get_contents('api.json');
@@ -61,37 +62,49 @@
             
         ?>      
         <?php
+            //pegando os valores de cada array
             $carros = $registros['carros']; 
             $motores = $registros['motores']; 
 
-            foreach($carros as $id_carros){
-                $id = $id_carros['id'];
-                $marca = $id_carros['marca'];
-                $modelo = $id_carros['modelo'];
-                $cor = $id_carros['cor'];
-                $motor_id = $id_carros['motor_id'];
+            //checando se o banco está vazio para não salvar os dados da API mais de uma vez
+            $vazio = "SELECT id FROM carros";
+            $checkDB = mysqli_query($conn, $vazio);
 
-                $result = "INSERT INTO carros (id,marca,modelo,cor,motor_id) 
-                VALUES ('$id','$marca','$modelo','$cor','$motor_id')";
-            
-                $queryDB = mysqli_query($conn, $result);
-            }
-            foreach($motores as $id_motores){
-                $id = $id_motores['id'];
-                $posicionamento_cilindros = $id_motores['posicionamento_cilindros'];
-                $cilindros = $id_motores['cilindros'];
-                $litragem = $id_motores['litragem'];
-                $observacao = $id_motores['observacao'];
+            //se tiver vazio salva os dados no banco
+            if($checkDB->num_rows === 0){
+                echo "DADOS DA API SALVOS NO BANCO";
+                foreach($carros as $id_carros){
+                    $id = $id_carros['id'];
+                    $marca = $id_carros['marca'];
+                    $modelo = $id_carros['modelo'];
+                    $cor = $id_carros['cor'];
+                    $motor_id = $id_carros['motor_id'];
 
-                $result = "INSERT INTO motores (id,posicionamento_cilindros,cilindros,litragem,observacao) 
-                VALUES ('$id','$posicionamento_cilindros','$cilindros','$litragem','$observacao')";
-            
-                $queryDB = mysqli_query($conn, $result);
+                    $result = "INSERT INTO carros (id,marca,modelo,cor,motor_id) 
+                    VALUES ('$id','$marca','$modelo','$cor','$motor_id')";
+                
+                    $queryDB = mysqli_query($conn, $result);
+                }
+                foreach($motores as $id_motores){
+                    $id = $id_motores['id'];
+                    $posicionamento_cilindros = $id_motores['posicionamento_cilindros'];
+                    $cilindros = $id_motores['cilindros'];
+                    $litragem = $id_motores['litragem'];
+                    $observacao = $id_motores['observacao'];
+
+                    $result = "INSERT INTO motores (id,posicionamento_cilindros,cilindros,litragem,observacao) 
+                    VALUES ('$id','$posicionamento_cilindros','$cilindros','$litragem','$observacao')";
+                
+                    $queryDB = mysqli_query($conn, $result);
+                }
+            }else{
+                echo "API JÁ CONSULTADA";
             }
 
         ?> 
         <?php             
 
+            //buscando e listando os valores 
             $listCarros = "SELECT * FROM carros";
             $listCarrosQuery = mysqli_query($conn, $listCarros);
            

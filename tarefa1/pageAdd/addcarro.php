@@ -1,7 +1,5 @@
 <?php 
-    include_once("dadosConexao.php"); 
-
-
+    include_once("../db/dadosConexao.php"); 
 
     $marca = filter_input(INPUT_POST, 'marca', FILTER_SANITIZE_STRING);
     $modelo = filter_input(INPUT_POST, 'modelo', FILTER_SANITIZE_STRING);
@@ -15,9 +13,9 @@
 
     if(mysqli_insert_id($conn)){
         printf('Successfully.<br />');
-        header("Location: index.php");        
+        header("Location: ../index.php");        
     }
     else{
-        header("Location: index.php");
+        header("Location: form_add_carro.php");
     }
 ?> 

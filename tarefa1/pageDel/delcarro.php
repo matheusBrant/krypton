@@ -1,5 +1,5 @@
 <?php 
-    include_once("dadosConexao.php"); 
+    include_once("../db/dadosConexao.php"); 
 
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
 
@@ -9,7 +9,7 @@
 
 
     if(mysqli_affected_rows($conn)){
-        header("Location: index.php");        
+        header("Location: ../../index.php");        
     }
     else{
         echo "Algo deu errado";     

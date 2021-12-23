@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Tarefa 1</title>
-        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <link rel="stylesheet" type="text/css" href="../pageEstilo/estilo.css">
     </head>
     <body>
 
@@ -11,7 +11,7 @@
         <script>
             var btn = document.getElementById('myBtn');
             btn.addEventListener('click', function() {
-            document.location.href = 'index.php';
+            document.location.href = '../index.php';
             });
         </script>
         <form method="POST" action="delcarro.php">
