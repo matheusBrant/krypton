@@ -13,7 +13,7 @@
     // Create database
     $sql = "CREATE DATABASE myDB";
     if ($conn->query($sql) === TRUE) {
-        echo "Database created successfully";
+        echo "Database created successfully\n";
     } else {
         echo "Error creating database: " . $conn->error;
     }

@@ -12,7 +12,7 @@
     }
 
     // sql to create table
-    $sql = "CREATE TABLE motores (
+    $sql2 = "CREATE TABLE motores (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         posicionamento_cilindros VARCHAR(30) NOT NULL,
         cilindros VARCHAR(30) NOT NULL,
@@ -29,9 +29,12 @@
         reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Table MyGuests created successfully";
+        echo "Tabela carros criada com sucesso\n";
+    }
+    if ($conn->query($sql2) === TRUE){
+        echo "Tabelas motores criadas com sucesso\n";
     } else {
-        echo "Error creating table: " . $conn->error;
+        echo "Erro ao criar tabela: " . $conn->error;
     }
 
     $conn->close();
