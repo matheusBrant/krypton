@@ -6,7 +6,7 @@
     </head>
     <body>
 
-        <h1 class="">Adicionar Carro</h1>
+        <h1 class="">Excluir Carro</h1>
         <button id="myBtn" class="btnVoltar">Voltar</button><br><br>
         <script>
             var btn = document.getElementById('myBtn');
