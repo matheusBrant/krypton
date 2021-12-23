@@ -10,13 +10,13 @@
         <!--Paginação-->
         <h1> Páginas </h1>
          <div class='page'>
-         <form method='POST' action='page.php'> <input type='submit' value='1'>
+         <form method='POST' action='index.php'> <input type='submit' value='1'>
             <input type='number' id='pagina'  name='pagina' value=1 hidden>
             </form>
-            <form method='POST' action='page.php'> <input type='submit' value='2'>
+            <form method='POST' action='index.php'> <input type='submit' value='2'>
             <input type='number' id='pagina'  name='pagina' value=2 hidden>
             </form>
-            <form method='POST' action='page.php'> <input type='submit' value='3'>
+            <form method='POST' action='index.php'> <input type='submit' value='3'>
             <input type='number' id='pagina'  name='pagina' value=3 hidden>
             </form>
         </div>
