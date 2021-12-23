@@ -14,7 +14,10 @@
 - Para a tarefa 2 o mesmo:  ```cd tarefa2/db```
 - Os scripts de criação local são: ```php createDB.php``` e ```php createTable.php```
 
-![Screenshot](img1.png)
-![Screenshot](img2.png)
+
+<p align="center">
+  <img src="img1.png" width="100" >
+  <img src="img2.png" width="100" >
+</p>
 
 Com isso acredito que seja o suficiente para rodar. Obrigado!
