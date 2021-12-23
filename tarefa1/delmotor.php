@@ -7,7 +7,7 @@
     
     $queryDB = mysqli_query($conn, $result);
 
-    if(mysqli_insert_id($conn)){
+    if(mysqli_affected_rows($conn)){
         header("Location: index.php");        
     }
     else{

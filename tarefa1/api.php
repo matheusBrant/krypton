@@ -11,8 +11,5 @@
         fwrite($file, $response);
         fclose($file);
 
-        $file = fopen('dados.json','w');
-        fwrite($file, $response);
-        fclose($file);   
     }
 ?>

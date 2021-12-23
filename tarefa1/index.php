@@ -35,14 +35,29 @@
             });
         </script> 
 
-        <?php  
-            include_once("api.php"); 
+        <?php             
+            //include_once("api.php"); 
             include("dadosConexao.php"); 
-            consumirAPI();
+            //consumirAPI(); 
+            $url = "https://apiintranet.kryptonbpo.com.br/test-dev/exercise-1";
+            $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+                $response = curl_exec($ch);
+                    curl_close($ch);
 
-            $registros = file_get_contents('api.json');
-            $registros = json_decode($registros, true);
-      
+            $validando_once = file_exists('api.json');
+            if($validando_once){
+                $registros = file_get_contents('api.json');
+                $registros = json_decode($registros, true);
+            }else{
+                $registros = json_decode($response, true);
+                $file = fopen('api.json','w');
+                fwrite($file, $response);
+                fclose($file);
+            }
+           
             
         ?>      
         <?php
