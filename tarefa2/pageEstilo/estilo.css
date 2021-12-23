@@ -1,0 +1,39 @@
+.page{
+    margin-right: auto;
+    display: flex;
+    margin-left: auto;
+}
+.sub{
+    padding: 10px;
+}
+.carro {
+    width: 300px;
+    height: 90%;
+    background: darkgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    box-shadow: -1px -1px 1px black;
+    -webkit-box-shadow: -1px -1px 1px black;
+    -moz-box-shadow: -1px -1px 1px black;
+}
+h1{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+hr{
+    border: 0;
+	border-top: 20px solid pink;
+}
+body{
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    background: rgb(27,186,26);
+    background: linear-gradient(90deg, rgba(27,186,26,0.6867121848739496) 0%, rgba(9,73,121,0.76234243697479) 35%, rgba(40,40,154,0.9164040616246498) 100%);
+}
