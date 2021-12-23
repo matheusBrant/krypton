@@ -1,0 +1,19 @@
+<?php 
+    include_once("dadosConexao.php"); 
+
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+
+    $result = "DELETE FROM carros WHERE id = '$id'";
+    
+    $queryDB = mysqli_query($conn, $result);
+
+
+    if(mysqli_insert_id($conn)){
+        header("Location: index.php");        
+    }
+    else{
+        echo "Algo deu errado";     
+        sleep(2);
+        header("Location: form_del_carro.php");     
+    }
+?> 
