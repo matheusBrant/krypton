@@ -1,4 +1,4 @@
-# Teste Dev Krypton BPO 2021
+# Test Dev Krypton BPO
 
 
 #### Tarefa 1 e 2
@@ -13,7 +13,6 @@
 
 - Para a tarefa 2 o mesmo:  ```cd tarefa2/db```
 - Os scripts de criação local são: ```php createDB.php``` e ```php createTable.php```
-
 
 ![Screenshot](img1.png)
 ![Screenshot](img2.png)
