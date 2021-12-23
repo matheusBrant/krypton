@@ -16,8 +16,8 @@
 
 
 <p align="center">
-  <img src="img1.png" width="350" >
-  <img src="img2.png" width="350" >
+  <img src="img1.png" width="450" >
+  <img src="img2.png" width="450" >
 </p>
 
 Com isso acredito que seja o suficiente para rodar. Obrigado!
