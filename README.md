@@ -1,6 +1,3 @@
-# Test Dev Krypton BPO
-
-
 #### Tarefa 1 e 2
 
 -  ```cd tarefa1``` para carregar o css da page 1
@@ -19,5 +16,3 @@
   <img src="img1.png" width="450" >
   <img src="img2.png" width="450" >
 </p>
-
-Com isso acredito que seja o suficiente para rodar. Obrigado!
