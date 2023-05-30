@@ -1,4 +1,4 @@
-#### Tarefa 1 e 2
+<!-- #### Tarefa 1 e 2
 
 -  ```cd tarefa1``` para carregar o css da page 1
 -  ```cd tarefa2``` para carregar o css da page 2
@@ -10,7 +10,7 @@
 
 - Para a tarefa 2 o mesmo:  ```cd tarefa2/db```
 - Os scripts de criação local são: ```php createDB.php``` e ```php createTable.php```
-
+-->
 
 <p align="center">
   <img src="img1.png" width="450" >
